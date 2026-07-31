@@ -10,6 +10,23 @@ calculates plan execution efficiency, and provides deep user-level insights.
 
 ---
 
+## 📸 Preview
+
+### Swagger UI
+
+<img src="images/swagger_ui.png" width="900">
+
+### Example Endpoint
+
+<img src="images/setup_database.png" width="800">
+<img src="images/setup_database2.png" width="800">
+<img src="images/plans_performance.png" width="800">
+<img src="images/year_performance.png" width="800">
+<img src="images/user_credits.png" width="800">
+<img src="images/user_credits2.png" width="800">
+
+---
+
 ## 🌐 Live Demo & Testing
 The application is deployed and available for interactive testing:
 🔗 **[Interactive App Documentation (Swagger)](https://tanya-dev.help/docs)**
