@@ -10,6 +10,14 @@ calculates plan execution efficiency, and provides deep user-level insights.
 
 ---
 
+## 🌐 Live Demo & Testing
+The application is deployed and available for interactive testing:
+
+🔗 **[Interactive App Documentation (Swagger)](https://api.tanya-dev.help/docs)**
+🔗 **[Alternative Documentation (ReDoc)](https://api.tanya-dev.help/redoc)**
+
+* **Status:** Deployed and Production-ready via Nginx & Docker.
+
 ## 📸 Preview
 
 ### Swagger UI
@@ -27,13 +35,40 @@ calculates plan execution efficiency, and provides deep user-level insights.
 
 ---
 
-## 🌐 Live Demo & Testing
-The application is deployed and available for interactive testing:
+## ⚡ Performance & Optimization
 
-🔗 **[Interactive App Documentation (Swagger)](https://api.tanya-dev.help/docs)**
-🔗 **[Alternative Documentation (ReDoc)](https://api.tanya-dev.help/redoc)**
+The application uses an asynchronous FastAPI architecture with async SQLAlchemy and PostgreSQL for efficient I/O-bound operations.
 
-* **Status:** Deployed and Production-ready via Nginx & Docker.
+### Production Performance
+
+Benchmarked with **ApacheBench** (`n=100`, `c=1`):
+
+| Endpoint | Avg. latency | Requests/sec | Success |
+|---|---:|---:|---:|
+| `GET /plans/performance` | **85.1 ms** | **11.75 req/s** | 100/100 |
+| `GET /plans/year_performance` | **131.8 ms** | **7.59 req/s** | 100/100 |
+
+### ETL Data Processing
+
+A full ETL run processes **50K+ records**:
+
+- 4,000 users
+- 4,000 credits
+- 46,174 payments
+- 62 plans
+
+Blocking Pandas parsing is offloaded with `asyncio.to_thread()` to keep the asynchronous API responsive.
+
+### Data Validation
+
+The import pipeline validates:
+
+- invalid date formats;
+- empty amounts;
+- invalid monthly periods;
+- duplicate plans;
+- existing plans;
+- invalid Excel files.
 
 ### 💡 Quick Sandbox Guide:
 To see the system in action without uploading your own files, use these predefined ranges:
